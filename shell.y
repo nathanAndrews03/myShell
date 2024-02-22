@@ -69,7 +69,7 @@ pipe_list:
 	    }
 	| pipe_list PIPE cmd_and_args 
 	    {
-	    	Shell::TheShel->_pipeCommand->insertSimpleCommand( $3 );	
+	    	Shell::TheShel->_pipeCommand->insertSimpleCommand( $1 );	
 	    }
 	;
 
