@@ -71,8 +71,9 @@ pipe_list:
 	    {
 	    	Shell::TheShell->_pipeCommand = new PipeCommand(); 	
 	    	Shell::TheShell->_listCommands->insertCommand(Shell::TheShell->_pipeCommand);
-		Shell::TheShell->_pipeCommand->insertSimpleCommand( Shell::TheShell->_simpleCommand ); 
 		Shell::TheShell->_simpleCommand = new SimpleCommand();
+		Shell::TheShell->_pipeCommand->insertSimpleCommand( Shell::TheShell->_simpleCommand ); 
+
 
 	    }
 	;
