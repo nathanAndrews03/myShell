@@ -14,6 +14,9 @@ public:
   std::string * _errFile;
   bool _background;
 
+  // open flag?
+
+
   PipeCommand();
   void insertSimpleCommand( SimpleCommand * simpleCommand );
 

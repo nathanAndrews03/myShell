@@ -1173,7 +1173,7 @@ yyreduce:
             {
 	    	Shell::TheShell->_pipeCommand->insertSimpleCommand( 
 		    Shell::TheShell->_simpleCommand ); 
-		Shell::TheShell->_simpleCommand = new SimpleCommand();
+		//Shell::TheShell->_simpleCommand = new SimpleCommand();
 	    }
 #line 1179 "y.tab.cc"
     break;
