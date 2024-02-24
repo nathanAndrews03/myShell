@@ -13,8 +13,8 @@ public:
   std::string * _inFile;
   std::string * _errFile;
   bool _background;
-
-  // open flag?
+  bool _append;
+  // append flag?
 
 
   PipeCommand();

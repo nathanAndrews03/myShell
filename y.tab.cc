@@ -1171,9 +1171,9 @@ yyreduce:
   case 8: /* pipe_list: pipe_list PIPE cmd_and_args  */
 #line 71 "shell.y"
             {
-	    	Shell::TheShell->_pipeCommand->insertSimpleCommand( 
-		    Shell::TheShell->_simpleCommand ); 
-		//Shell::TheShell->_simpleCommand = new SimpleCommand();
+	    	Shell::TheShell->_pipeCommand->insertSimpleCommand(
+	    		Shell::TheShell->_simpleCommand);
+	  	Shell::TheShell->_simpleCommand = new SimpleCommand();
 	    }
 #line 1179 "y.tab.cc"
     break;

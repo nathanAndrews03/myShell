@@ -78,7 +78,8 @@ pipe_list:
 io_modifier:
 	   GREATGREAT WORD
 	   {
-	   	//Shell::TheShell->_pipeCommand->_outFile = $3;
+	   	Shell::TheShell->_pipeCommand->_outFile = $2;
+		Shell::TheShell->_pipeCommand->_append = true;
 	   }
 	 | GREAT WORD 
 	    {
@@ -86,15 +87,18 @@ io_modifier:
 	    }
 	 | GREATGREATAMPERSAND WORD
 	 {
-	 	//
+	 	Shell::TheShell->_pipeCommand->_outfile = $2;
+		Shell::TheShell->_pipeCommand->_errFile = $2;
+		Shell::TheShell->_pipeCommand->_append = true;
 	 }
 	 | GREATAMPERSAND WORD
 	 {
-	 	//
+	 	Shell::TheShell->_pipeCommand->_outfile = $2;
+		Shell::TheShell->_pipeComamnd->_errFile = $2;
 	 }
 	 | LESS WORD
 	 {
-	 	//Shell::TheShell->_pipeCommand->_inFile = $2;
+	 	Shell::TheShell->_pipeCommand->_inFile = $2;
 	 }
 	;
 
@@ -105,6 +109,9 @@ io_modifier_list:
 
 background_optional: 
 	AMPERSAND
+	{
+		Shell::TheShell->_pipeCommand->_background = true;
+	}
 	| /*empty*/
 	;
 
