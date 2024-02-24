@@ -87,14 +87,14 @@ io_modifier:
 	    }
 	 | GREATGREATAMPERSAND WORD
 	 {
-	 	Shell::TheShell->_pipeCommand->_outfile = $2;
+	 	Shell::TheShell->_pipeCommand->_outFile = $2;
 		Shell::TheShell->_pipeCommand->_errFile = $2;
 		Shell::TheShell->_pipeCommand->_append = true;
 	 }
 	 | GREATAMPERSAND WORD
 	 {
-	 	Shell::TheShell->_pipeCommand->_outfile = $2;
-		Shell::TheShell->_pipeComamnd->_errFile = $2;
+	 	Shell::TheShell->_pipeCommand->_outFile = $2;
+		Shell::TheShell->_pipeCommand->_errFile = $2;
 	 }
 	 | LESS WORD
 	 {
