@@ -69,21 +69,33 @@ pipe_list:
 	    }
 	| pipe_list PIPE cmd_and_args 
 	    {
-		 
-
-
+	    	Shell::TheShell->_pipeCommand->insertSimpleCommand( 
+		    Shell::TheShell->_simpleCommand ); 
+		Shell::TheShell->_simpleCommand = new SimpleCommand();
 	    }
 	;
 
 io_modifier:
 	   GREATGREAT WORD
+	   {
+	   	//Shell::TheShell->_pipeCommand->_outFile = $3;
+	   }
 	 | GREAT WORD 
 	    {
 		Shell::TheShell->_pipeCommand->_outFile = $2;
 	    }
 	 | GREATGREATAMPERSAND WORD
+	 {
+	 	//
+	 }
 	 | GREATAMPERSAND WORD
+	 {
+	 	//
+	 }
 	 | LESS WORD
+	 {
+	 	//Shell::TheShell->_pipeCommand->_inFile = $2;
+	 }
 	;
 
 io_modifier_list:
