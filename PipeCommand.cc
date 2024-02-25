@@ -124,7 +124,7 @@ void PipeCommand::execute() {
 	int fdout;
 	int fderr;
 	if (_inFile) {
-		fdin = open(_inFile, O_RDONLY);
+		fdin = open(_inFile->c_str(), O_RDONLY);
 	} else {
 		// Use default input
 		fdin = dup(tmpin);
@@ -132,22 +132,22 @@ void PipeCommand::execute() {
 
 	if (_errFile) {
 		if (_append) {
-			fderr = open(_errFile, O_WRONLY | O_APPEND | O_CREAT, 0600);
+			fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 		} else {
-			fderr = open(_errFile, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+			fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 		}
 	} else {
 		fderr = dup(tmperr);
 	}
-    for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
-	SimpleCommand *s = _simpleCommands[i];
-	const char ** args = (const char **) 
-		malloc((s->_arguments.size()+1)*sizeof(char*));
-	for (unsigned long j = 0; j < s->_arguments.size(); j++) {
-		args[j] = s->_arguments[j]->c_str();
-	}
+	for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
+		SimpleCommand *s = _simpleCommands[i];
+		const char ** args = (const char **) 
+			malloc((s->_arguments.size()+1)*sizeof(char*));
+		for (unsigned long j = 0; j < s->_arguments.size(); j++) {
+			args[j] = s->_arguments[j]->c_str();
+		}
 
-	dup2(fdin, 0);
+		dup2(fdin, 0);
 		close(fdin);
 		//setup output
 		if (i == _simpleCommands.size()-1){
@@ -155,9 +155,9 @@ void PipeCommand::execute() {
 			if(_outFile){
 				// open output file, append if necessary
 				if (_append) {
-					fdout = open(_outFile, O_WRONLY | O_APPEND | O_CREAT, 0600);
+					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 				} else {
-					fdout = open(_outFile, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 				}
 			} else {
 				// Use default output
@@ -191,7 +191,7 @@ void PipeCommand::execute() {
 	close(tmpout);
 	close(tmperr);
    	if(!_background){
-		waitpid(pid,NULL,0);
+		waitpid(ret,NULL,0);
 	}
 
 /*
