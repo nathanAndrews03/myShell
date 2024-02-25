@@ -106,7 +106,7 @@ io_modifier:
 	 }
 	 | TWOGREAT WORD 
 	 {
-		Shell::_currentCommand._errFile = $2;
+		Shell::TheShell->_pipeCommand->_errFile = $2;
 	 }
 	;
 
