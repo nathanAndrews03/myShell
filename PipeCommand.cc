@@ -114,23 +114,6 @@ void PipeCommand::execute() {
     // and call exec
     //
     int ret;
-    for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
-	SimpleCommand *s = _simpleCommands[i];
-	const char ** args = (const char **) 
-		malloc((s->_arguments.size()+1)*sizeof(char*));
-	for (unsigned long j = 0; j < s->_arguments.size(); j++) {
-		args[j] = s->_arguments[j]->c_str();
-	}
-	args[s->_arguments.size()] = NULL;
-	ret = fork();
-	if (ret == 0) {
-		execvp(args[0], (char* const*)args);
-		perror("execvp");
-		exit(1);
-	}
-    }
-    waitpid(ret, NULL, 0);
-
 
     	//save in/out
 	int tmpin=dup(0);
@@ -144,6 +127,50 @@ void PipeCommand::execute() {
 		fdin = dup(tmpin);
 	}
 	int fdout;
+    for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
+	SimpleCommand *s = _simpleCommands[i];
+	const char ** args = (const char **) 
+		malloc((s->_arguments.size()+1)*sizeof(char*));
+	for (unsigned long j = 0; j < s->_arguments.size(); j++) {
+		args[j] = s->_arguments[j]->c_str();
+	}
+
+	dup2(fdin, 0);
+		close(fdin);
+		//setup output
+		if (i == _simpleCommands.size()-1){
+		// Last simple command
+			if(_outFile){
+				fdout=open(_outFile, );
+			} else {
+				// Use default output
+				fdout=dup(tmpout);
+			}
+		} else {
+			// Not last
+			//simple command
+			//create pipe
+			int fdpipe[2];
+			pipe(fdpipe);
+			fdout=fdpipe[1];
+			fdin = fdpipe[0];
+		}// if/else
+		// Redirect output
+		dup2(fdout,1);
+		close(fdout);
+
+	args[s->_arguments.size()] = NULL;
+	ret = fork();
+	if (ret == 0) {
+		execvp(args[0], (char* const*)args);
+		perror("execvp");
+		exit(1);
+	}
+    }
+    waitpid(ret, NULL, 0);
+
+/*
+
 	for(unsigned long i=0; i < _simpleCommands.size(); i++) {
 		//redirect input
 		dup2(fdin, 0);
@@ -178,6 +205,7 @@ void PipeCommand::execute() {
 			exit(1);
 		}
 	} // for
+	  */
     // Clear to prepare for next command
     clear();
 
