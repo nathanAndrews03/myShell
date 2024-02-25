@@ -156,25 +156,25 @@ void PipeCommand::execute() {
 		if (i == _simpleCommands.size()-1) {
 			if (_outFile && _errFile) {
 				if (_append) {
-					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
-					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
+					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 				} else {
-					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
-					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 				}
 			} else if(_outFile){
 				// open output file, append if necessary
 				if (_append) {
-					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
+					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 				} else {
-					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 				}
 
 			} else if (_errFile) {
 				if (_append) {
-					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 				} else {
-					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 				}
 			} else {
 				// Use default output
