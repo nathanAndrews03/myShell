@@ -1230,7 +1230,7 @@ yyreduce:
   case 14: /* io_modifier: TWOGREAT WORD  */
 #line 108 "shell.y"
          {
-		Shell::_currentCommand._errFile = (yyvsp[0].cpp_string);
+		Shell::TheShell->_pipeCommand->_errFile = (yyvsp[0].cpp_string);
 	 }
 #line 1236 "y.tab.cc"
     break;

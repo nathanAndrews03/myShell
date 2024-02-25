@@ -58,7 +58,8 @@ void PipeCommand::clear() {
     if ( _outFile ) {
         delete _outFile;
     	_outFile = NULL;
-    } else if ( _errFile ) {
+    } 
+    if ( _errFile ) {
         delete _errFile;
     	_errFile = NULL;
     } 
