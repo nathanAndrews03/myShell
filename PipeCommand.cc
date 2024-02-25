@@ -140,8 +140,8 @@ void PipeCommand::execute() {
 	}
 	*/
 
-	dup2(fderr,2);
-	close(fderr);
+	//dup2(fderr,2);
+	//close(fderr);
 	for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
 		SimpleCommand *s = _simpleCommands[i];
 		const char ** args = (const char **) 
@@ -193,6 +193,8 @@ void PipeCommand::execute() {
 		// Redirect output
 		dup2(fdout,1);
 		close(fdout);
+		dup2(fderr, 2);
+		clsoe(fderr);
 
 		args[s->_arguments.size()] = NULL;
 		ret = fork();
