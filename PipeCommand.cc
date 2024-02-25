@@ -145,15 +145,15 @@ void PipeCommand::execute() {
 	}
 	int ret;
 	int fdout;
-	for(i=0; i<numsimplecommands; i++) {
+	for(i=0; i < _simpleCommands.size(); i++) {
 		//redirect input
 		dup2(fdin, 0);
 		close(fdin);
 		//setup output
-		if (i == numsimplecommands-1){
+		if (i == _simpleCommands.size()-1){
 		// Last simple command
 			if(outfile){
-				fdout=open(outfile,......);
+				fdout=open(_outFile, );
 			} else {
 				// Use default output
 				fdout=dup(tmpout);
@@ -173,8 +173,8 @@ void PipeCommand::execute() {
 		// Create child process
 		ret=fork();
 		if(ret==0) {
-			execvp(scmd[i].args[0],
-			scmd[i].args);
+			execvp(_simpleCommands[i].args[0],
+			_simpleCommands[i].args);
 			perror(“execvp”);
 			exit(1);
 		}
