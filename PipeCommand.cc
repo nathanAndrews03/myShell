@@ -128,7 +128,7 @@ void PipeCommand::execute() {
 		// Use default input
 		fdin = dup(tmpin);
 	}
-
+	/*
 	if (_errFile) {
 		if (_append) {
 			fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
@@ -138,6 +138,7 @@ void PipeCommand::execute() {
 	} else {
 		fderr = dup(tmperr);
 	}
+	*/
 
 	dup2(fderr,2);
 	close(fderr);
@@ -152,18 +153,33 @@ void PipeCommand::execute() {
 		dup2(fdin, 0);
 		close(fdin);
 		//setup output
-		if (i == _simpleCommands.size()-1){
-		// Last simple command
-			if(_outFile){
+		if (i == _simpleCommands.size()-1) {
+			if (_outFile && _errFile) {
+				if (_append) {
+					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
+				} else {
+					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+				}
+			} else if(_outFile){
 				// open output file, append if necessary
 				if (_append) {
 					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
 				} else {
 					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 				}
+
+			} else if (_errFile) {
+				if (_append) {
+					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0664);
+				} else {
+					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+				}
 			} else {
 				// Use default output
 				fdout = dup(tmpout);
+				fderr = dup(tmperr);
 			}
 		} else {
 			// Not last
