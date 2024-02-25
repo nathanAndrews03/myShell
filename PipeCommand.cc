@@ -137,11 +137,11 @@ void PipeCommand::execute() {
 	int tmpout=dup(1);
 	//set the initial input
 	int fdin;
-	if (infile) {
+	if (_inFile) {
 		fdin = open(_inFile,......);
 	} else {
 		// Use default input
-		fdin=dup(tmpin);
+		fdin = dup(tmpin);
 	}
 	int fdout;
 	for(unsigned long i=0; i < _simpleCommands.size(); i++) {
@@ -151,7 +151,7 @@ void PipeCommand::execute() {
 		//setup output
 		if (i == _simpleCommands.size()-1){
 		// Last simple command
-			if(outfile){
+			if(_outFile){
 				fdout=open(_outFile, );
 			} else {
 				// Use default output
@@ -164,15 +164,15 @@ void PipeCommand::execute() {
 			int fdpipe[2];
 			pipe(fdpipe);
 			fdout=fdpipe[1];
-			fdin=fdpipe[0];
+			fdin = fdpipe[0];
 		}// if/else
 		// Redirect output
 		dup2(fdout,1);
 		close(fdout);
 		// Create child process
-		ret=fork();
+		ret = fork();
 		if(ret==0) {
-			execvp(_simpleCommands[i].args[0],
+			execvp(_simpleCommand[0],
 			_simpleCommands[i].args);
 			perror("execvp");
 			exit(1);
