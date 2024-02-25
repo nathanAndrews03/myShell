@@ -83,7 +83,11 @@ io_modifier:
 	   }
 	 | GREAT WORD 
 	    {
-		Shell::TheShell->_pipeCommand->_outFile = $2;
+		if (Shell::TheShell->_pipeCommand->_outFile) {
+        		fprintf(stderr, "Ambiguous output redirect.\n");
+    		} else {
+        		Shell::TheShell->_pipeCommand->_outFile = $2;
+    		}
 	    }
 	 | GREATGREATAMPERSAND WORD
 	 {
