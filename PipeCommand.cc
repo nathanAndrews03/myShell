@@ -139,6 +139,9 @@ void PipeCommand::execute() {
 	} else {
 		fderr = dup(tmperr);
 	}
+
+	dup2(fderr,2);
+	close(fderr);
 	for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
 		SimpleCommand *s = _simpleCommands[i];
 		const char ** args = (const char **) 
