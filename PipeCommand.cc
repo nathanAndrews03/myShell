@@ -99,21 +99,20 @@ void PipeCommand::print() {
 }
 
 void PipeCommand::execute() {
-    // Don't do anything if there are no simple commands
-    if ( _simpleCommands.size() == 0 ) {
-        Shell::TheShell->prompt();
-        return;
-    }
+    	// Don't do anything if there are no simple commands
+    	if ( _simpleCommands.size() == 0 ) {
+        	Shell::TheShell->prompt();
+        	return;
+    	}
 
-    // Print contents of PipeCommand data structure
-    print();
+    	// Print contents of PipeCommand data structure
+    	print();
 
-    // Add execution here
-    // For every simple command fork a new process
-    // Setup i/o redirection
-    // and call exec
-    //
-    int ret;
+   	// Add execution here
+    	// For every simple command fork a new process
+    	// Setup i/o redirection
+    	// and call exec
+    	int ret;
 
     	//save in/out
 	int tmpin=dup(0);
@@ -196,50 +195,12 @@ void PipeCommand::execute() {
    	if(!_background){
 		waitpid(ret,NULL,0);
 	}
+	 // Clear to prepare for next command
+    	clear();
 
-/*
-
-	for(unsigned long i=0; i < _simpleCommands.size(); i++) {
-		//redirect input
-		dup2(fdin, 0);
-		close(fdin);
-		//setup output
-		if (i == _simpleCommands.size()-1){
-		// Last simple command
-			if(_outFile){
-				fdout=open(_outFile, );
-			} else {
-				// Use default output
-				fdout=dup(tmpout);
-			}
-		} else {
-			// Not last
-			//simple command
-			//create pipe
-			int fdpipe[2];
-			pipe(fdpipe);
-			fdout=fdpipe[1];
-			fdin = fdpipe[0];
-		}// if/else
-		// Redirect output
-		dup2(fdout,1);
-		close(fdout);
-		// Create child process
-		ret = fork();
-		if(ret==0) {
-			execvp(_simpleCommands[0],
-			_simpleCommands[i]);
-			perror("execvp");
-			exit(1);
-		}
-	} // for
-	  */
-    // Clear to prepare for next command
-    clear();
-
-    // Print new prompt
-    //Shell::TheShell->prompt();
-}
+    	// Print new prompt
+    	Shell::TheShell->prompt();
+}	
 
 // Expands environment vars and wildcards of a SimpleCommand and
 // returns the arguments to pass to execvp.
