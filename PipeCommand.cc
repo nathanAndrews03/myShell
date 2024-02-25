@@ -138,14 +138,13 @@ void PipeCommand::execute() {
 	//set the initial input
 	int fdin;
 	if (infile) {
-		fdin = open(infile,......);
+		fdin = open(_inFile,......);
 	} else {
 		// Use default input
 		fdin=dup(tmpin);
 	}
-	int ret;
 	int fdout;
-	for(i=0; i < _simpleCommands.size(); i++) {
+	for(int i=0; i < _simpleCommands.size(); i++) {
 		//redirect input
 		dup2(fdin, 0);
 		close(fdin);
@@ -175,7 +174,7 @@ void PipeCommand::execute() {
 		if(ret==0) {
 			execvp(_simpleCommands[i].args[0],
 			_simpleCommands[i].args);
-			perror(“execvp”);
+			perror("execvp");
 			exit(1);
 		}
 	} // for
