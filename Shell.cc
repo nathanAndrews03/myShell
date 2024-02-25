@@ -22,10 +22,14 @@ Shell::Shell() {
 }
 
 void Shell::prompt() {
-    if (_enablePrompt) {
-	printf("myshell>");
+    	if (_enablePrompt) {
+		printf("myshell>");
+    	} else {
+    		char *pVal = getenv("PROMPT");
+    		if (pVal != NULL) printf("%s ", pPrompt);
+  			else printf("myshell>");
+	}
 	fflush(stdout);
-    }
 }
 
 void Shell::print() {
