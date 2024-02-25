@@ -1198,7 +1198,7 @@ yyreduce:
   case 11: /* io_modifier: GREATGREATAMPERSAND WORD  */
 #line 89 "shell.y"
          {
-	 	Shell::TheShell->_pipeCommand->_outfile = (yyvsp[0].cpp_string);
+	 	Shell::TheShell->_pipeCommand->_outFile = (yyvsp[0].cpp_string);
 		Shell::TheShell->_pipeCommand->_errFile = (yyvsp[0].cpp_string);
 		Shell::TheShell->_pipeCommand->_append = true;
 	 }
@@ -1208,8 +1208,8 @@ yyreduce:
   case 12: /* io_modifier: GREATAMPERSAND WORD  */
 #line 95 "shell.y"
          {
-	 	Shell::TheShell->_pipeCommand->_outfile = (yyvsp[0].cpp_string);
-		Shell::TheShell->_pipeComamnd->_errFile = (yyvsp[0].cpp_string);
+	 	Shell::TheShell->_pipeCommand->_outFile = (yyvsp[0].cpp_string);
+		Shell::TheShell->_pipeCommand->_errFile = (yyvsp[0].cpp_string);
 	 }
 #line 1215 "y.tab.cc"
     break;

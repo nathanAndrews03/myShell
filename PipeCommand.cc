@@ -129,7 +129,9 @@ void PipeCommand::execute() {
 		exit(1);
 	}
     }
-    waitpid(ret, NULL, 0);
+    if (!background) { 
+    	waitpid(ret, NULL, 0);
+    }
 
     // Clear to prepare for next command
     clear();
