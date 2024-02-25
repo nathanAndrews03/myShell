@@ -26,7 +26,7 @@ void Shell::prompt() {
 		printf("myshell>");
     	} else {
     		char *pVal = getenv("PROMPT");
-    		if (pVal != NULL) printf("%s ", pPrompt);
+    		if (pVal != NULL) printf("%s ", pVal);
   			else printf("myshell>");
 	}
 	fflush(stdout);
