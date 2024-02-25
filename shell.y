@@ -104,6 +104,10 @@ io_modifier:
 	 {
 	 	Shell::TheShell->_pipeCommand->_inFile = $2;
 	 }
+	 | TWOGREAT WORD 
+	 {
+		Shell::_currentCommand._errFile = $2;
+	 }
 	;
 
 io_modifier_list:

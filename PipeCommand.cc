@@ -160,12 +160,12 @@ void PipeCommand::execute() {
 				}
 
 				if (fdout < 0) {
-					//perror("outFile open error");
+					perror("open");
 					exit(1);
 				}
 
 				if (fderr < 0) {
-					//perror("errFile open error");
+					perror("open");
 					exit(1);
 				}
 			} else if(_outFile){
@@ -176,7 +176,7 @@ void PipeCommand::execute() {
 					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 				}
 				if (fdout < 0) {
-					//perror("outFile open error");
+					perror("open");
 					exit(1);
 				}
 
@@ -188,7 +188,7 @@ void PipeCommand::execute() {
 				}
 
 				if (fderr < 0) {
-					//perror("errFile open error");
+					perror("open");
 					exit(1);
 				}
 			} else {
