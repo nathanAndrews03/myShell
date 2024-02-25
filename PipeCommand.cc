@@ -118,15 +118,27 @@ void PipeCommand::execute() {
     	//save in/out
 	int tmpin=dup(0);
 	int tmpout=dup(1);
+	int tmperr = dup(2);
 	//set the initial input
 	int fdin;
+	int fdout;
+	int fderr;
 	if (_inFile) {
-		fdin = open(_inFile,......);
+		fdin = open(_inFile, O_RDONLY);
 	} else {
 		// Use default input
 		fdin = dup(tmpin);
 	}
-	int fdout;
+
+	if (_errFile) {
+		if (_append) {
+			fderr = open(_errFile, O_WRONLY | O_APPEND | O_CREAT, 0600);
+		} else {
+			fderr = open(_errFile, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+		}
+	} else {
+		fderr = dup(tmperr);
+	}
     for (unsigned long i = 0; i < _simpleCommands.size(); i++) {
 	SimpleCommand *s = _simpleCommands[i];
 	const char ** args = (const char **) 
