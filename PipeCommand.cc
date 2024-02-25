@@ -172,8 +172,8 @@ void PipeCommand::execute() {
 		// Create child process
 		ret = fork();
 		if(ret==0) {
-			execvp(_simpleCommand[0],
-			_simpleCommands[i].args);
+			execvp(_simpleCommands[0],
+			_simpleCommands[i]);
 			perror("execvp");
 			exit(1);
 		}
