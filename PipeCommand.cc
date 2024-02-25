@@ -194,7 +194,7 @@ void PipeCommand::execute() {
 		dup2(fdout,1);
 		close(fdout);
 		dup2(fderr, 2);
-		clsoe(fderr);
+		close(fderr);
 
 		args[s->_arguments.size()] = NULL;
 		ret = fork();
