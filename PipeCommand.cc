@@ -129,7 +129,7 @@ void PipeCommand::execute() {
 		exit(1);
 	}
     }
-    if (!background) { 
+    if (!_background) { 
     	waitpid(ret, NULL, 0);
     }
 
