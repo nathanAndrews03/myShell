@@ -153,10 +153,15 @@ void PipeCommand::execute() {
 		if (i == _simpleCommands.size()-1){
 		// Last simple command
 			if(_outFile){
-				fdout=open(_outFile, );
+				// open output file, append if necessary
+				if (_append) {
+					fdout = open(_outFile, O_WRONLY | O_APPEND | O_CREAT, 0600);
+				} else {
+					fdout = open(_outFile, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+				}
 			} else {
 				// Use default output
-				fdout=dup(tmpout);
+				fdout = dup(tmpout);
 			}
 		} else {
 			// Not last
@@ -166,20 +171,28 @@ void PipeCommand::execute() {
 			pipe(fdpipe);
 			fdout=fdpipe[1];
 			fdin = fdpipe[0];
-		}// if/else
+		}
 		// Redirect output
 		dup2(fdout,1);
 		close(fdout);
 
-	args[s->_arguments.size()] = NULL;
-	ret = fork();
-	if (ret == 0) {
-		execvp(args[0], (char* const*)args);
-		perror("execvp");
-		exit(1);
+		args[s->_arguments.size()] = NULL;
+		ret = fork();
+		if (ret == 0) {
+			execvp(args[0], (char* const*)args);
+			perror("execvp");
+			exit(1);
+		}
+    	}
+    	dup2(tmpin, 0);
+	dup2(tmpout, 1);
+	dup2(tmperr, 2);
+	close(tmpin);
+	close(tmpout);
+	close(tmperr);
+   	if(!_background){
+		waitpid(pid,NULL,0);
 	}
-    }
-    waitpid(ret, NULL, 0);
 
 /*
 
