@@ -33,7 +33,7 @@ void Shell::prompt() {
 }
 
 void Shell::print() {
-    printf("\n--------------- Command Table ---------------\n");
+   // printf("\n--------------- Command Table ---------------\n");
     this->_listCommands->print();
 }
 
