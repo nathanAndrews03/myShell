@@ -92,13 +92,15 @@ io_modifier:
 	 | GREATGREATAMPERSAND WORD
 	 {
 	 	Shell::TheShell->_pipeCommand->_outFile = $2;
-		Shell::TheShell->_pipeCommand->_errFile = $2;
+		//Shell::TheShell->_pipeCommand->_errFile = $2;
+		Shell::TheShell->_pipeCommand->_errFile = new std::string($2->c_str());
 		Shell::TheShell->_pipeCommand->_append = true;
 	 }
 	 | GREATAMPERSAND WORD
 	 {
 	 	Shell::TheShell->_pipeCommand->_outFile = $2;
-		Shell::TheShell->_pipeCommand->_errFile = $2;
+		Shell::TheShell->_pipeCommand->_errFile = new std::string($2->c_str());
+		//Shell::TheShell->_pipeCommand->_errFile = $2;
 	 }
 	 | LESS WORD
 	 {
