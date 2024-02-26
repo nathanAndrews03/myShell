@@ -151,25 +151,6 @@ void PipeCommand::execute() {
 		close(fdin);
 		//setup output
 		if (i == _simpleCommands.size()-1) {
-			/* if (_outFile && _errFile) {
-				if (_append) {
-					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
-					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
-				} else {
-					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
-					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
-				}
-
-				if (fdout < 0) {
-					perror("open");
-					exit(1);
-				}
-
-				if (fderr < 0) {
-					perror("open");
-					exit(1);
-				}
-			} else  */
 			if (_outFile){
 				// open output file, append if necessary
 				if (_append) {
@@ -185,6 +166,7 @@ void PipeCommand::execute() {
 			} else {
 				fdout = dup(tmpout);
 			}
+
 			if (_errFile) {
 				if (_append) {
 					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
