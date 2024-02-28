@@ -103,7 +103,7 @@ void PipeCommand::execute() {
     	}
 
     	// Print contents of PipeCommand data structure
-    	//print();
+    	if (isatty(0)) print();
 
    	// Add execution here
     	// For every simple command fork a new process
@@ -144,6 +144,8 @@ void PipeCommand::execute() {
 		const char ** args = (const char **) 
 			malloc((s->_arguments.size()+1)*sizeof(char*));
 		for (unsigned long j = 0; j < s->_arguments.size(); j++) {
+			// expand envir vars somehow with a call when there is an environment vars in args
+			// Need to be expanded before execution
 			args[j] = s->_arguments[j]->c_str();
 		}
 

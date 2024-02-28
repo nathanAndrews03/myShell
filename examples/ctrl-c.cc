@@ -21,7 +21,7 @@ int main()
     struct sigaction sa;
     sa.sa_handler = disp;
     sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0;
+    sa.sa_flags = SA_RESTART;
 
     if(sigaction(SIGINT, &sa, NULL)){
         perror("sigaction");
@@ -33,7 +33,8 @@ int main()
 		char s[ 20 ];
 		printf( "prompt>");
 		fflush( stdout );
-		fgets( s, 20, stdin );
+		fgets( s, 20, stdin);
+		//printf("ss:%s\n" s);
 
 		if ( !strcmp( s, "exit\n" ) ) {
 			printf( "Bye!\n");
