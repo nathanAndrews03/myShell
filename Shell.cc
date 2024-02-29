@@ -58,7 +58,7 @@ void Shell::execute() {
 void yyset_in (FILE *  in_str );
 
 void sInterupt() {
-	fprintf( stderr, "\n^C\n);
+	fprintf( stderr, "\n^C\n");
 }
 
 int 
