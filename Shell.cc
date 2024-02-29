@@ -75,7 +75,7 @@ main(int argc, char **argv) {
     }
     yyset_in(f);
   }  
-
+/*
   struct sigaction sa;
   sa.sa_handler = sInterupt;
   sigemptyset(&sa.sa_mask);
@@ -84,7 +84,7 @@ main(int argc, char **argv) {
 	perror("sigaction");
 	exit(2);
   }
-
+*/
   Shell::TheShell = new Shell();
 
   if (input_file != NULL) {
