@@ -103,7 +103,8 @@ void PipeCommand::execute() {
     	}
 
     	// Print contents of PipeCommand data structure
-    	if (isatty(0)) print();
+    	//if (isatty(0))
+	print();
 
    	// Add execution here
     	// For every simple command fork a new process
@@ -114,7 +115,7 @@ void PipeCommand::execute() {
     	//save in/out
 	int tmpin=dup(0);
 	int tmpout=dup(1);
-	int tmperr = dup(2);
+	int tmperr=dup(2);
 	//set the initial input
 	int fdin;
 	int fdout;
@@ -145,7 +146,7 @@ void PipeCommand::execute() {
 		if (i == _simpleCommands.size()-1) {
 		
 			if (_outFile){
-				// open output file, append if necessary
+				// open output file, append if set to append
 				if (_append) {
 					fdout = open(_outFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 				} else {
@@ -161,6 +162,7 @@ void PipeCommand::execute() {
 			}
 
 			if (_errFile) {
+				// open err file, appennd if set to append
 				if (_append) {
 					fderr = open(_errFile->c_str(), O_WRONLY | O_APPEND | O_CREAT, 0600);
 				} else {
@@ -199,6 +201,8 @@ void PipeCommand::execute() {
 			exit(1);
 		}
     	}
+
+
     	dup2(tmpin, 0);
 	dup2(tmpout, 1);
 	dup2(tmperr, 2);
