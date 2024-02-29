@@ -62,7 +62,7 @@ extern "C" void sigInterupt(int sig) {
 	keepRunning = 0;
 }
  
-main(int argc, char **argv) {
+int main(int argc, char **argv) {
 
   char * input_file = NULL;
   if ( argc > 1 ) {
