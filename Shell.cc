@@ -57,8 +57,9 @@ void Shell::execute() {
 
 void yyset_in (FILE *  in_str );
 
-extern "C" void sInterupt(int sig) {
-	fprintf( stderr, "\n^C\n");
+static int keepRunning = 1;
+extern "C" void sigInterupt(int sig) {
+	keepRunining = 0;
 }
 
 int 
@@ -94,7 +95,10 @@ main(int argc, char **argv) {
   else {
     Shell::TheShell->prompt();
   }
-  yyparse();
+  signal(SIGINT, sigInterupt);
+  while (keepRunning) {
+  	yyparse();
+  }
 }
 
 
