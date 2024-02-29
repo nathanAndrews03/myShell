@@ -149,6 +149,7 @@ void PipeCommand::execute() {
 			fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
 		}
 
+	}
 	if (fderr < 0) {
 		perror("open");
 		exit(1);
