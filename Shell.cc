@@ -97,6 +97,7 @@ int main(int argc, char **argv) {
   signal(SIGINT, sigInterupt);
   while (keepRunning) {
   	yyparse();
+	signal(SIGINT, sigInterupt);
   }
 }
 
