@@ -57,9 +57,9 @@ void Shell::execute() {
 
 void yyset_in (FILE *  in_str );
 
-static volatile int keepRunning = 1;
+static int keepRunning = 1;
 extern "C" void sigInterupt(int sig) {
-	keepRunining = 0;
+	keepRunning = 0;
 }
  
 main(int argc, char **argv) {
