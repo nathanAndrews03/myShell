@@ -1,6 +1,7 @@
 
 #include <unistd.h>
 #include <cstdio>
+#include <signal.h>
 
 #include "Command.hh"
 #include "Shell.hh"
@@ -56,6 +57,10 @@ void Shell::execute() {
 
 void yyset_in (FILE *  in_str );
 
+void sInterupt() {
+	fprintf( stderr, "\n^C\n);
+}
+
 int 
 main(int argc, char **argv) {
 
@@ -70,6 +75,15 @@ main(int argc, char **argv) {
     }
     yyset_in(f);
   }  
+
+  struct sigaction sa;
+  sa.sa_handler = sInterrupt;
+  sigemptyset(&sa.sa_mask);
+  sa.sa_flags = SA_RESTART;
+  if (sigaction(SIGINT, &sa, NULL)) {
+	perror("sigaction");
+	exit(2);
+  }
 
   Shell::TheShell = new Shell();
 
