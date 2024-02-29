@@ -57,7 +57,7 @@ void Shell::execute() {
 
 void yyset_in (FILE *  in_str );
 
-void sInterupt() {
+extern "C" void sInterupt(int sig) {
 	fprintf( stderr, "\n^C\n");
 }
 
