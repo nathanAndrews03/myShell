@@ -63,14 +63,14 @@ void cInterrupt(int sig) {
 	Shell::TheShell->clear();
 	Shell::TheShell->prompt();
 }
-/*
+
 void zInterrupt(int sig) {
 	pid_t pid;
 	while ((pid = waitpid(-1, &wstatus, WNOHANG)) != -1); 
 	//printf("%d exited\n", pid);
 	Shell::TheShell->prompt();
 }
- */
+
 int main(int argc, char **argv) {
 
   char * input_file = NULL;
@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
 	perror("sigaction");
 	exit(1);
   }
-/*
+
   struct sigaction sa_z;
   sa_z.sa_handler = zInterrupt;
   sa_z.sa_flags = SA_RESTART;
@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
 	perror("sigaction");
 	exit(1);
   }
-*/
+
 
 
   Shell::TheShell = new Shell();
