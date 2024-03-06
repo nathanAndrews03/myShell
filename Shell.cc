@@ -65,8 +65,8 @@ void cInterrupt(int sig) {
 }
 
 void zInterrupt(int sig) {
-	int pid; //= wait3(0, 0, NULL);
-    	while (1) {
+	int pid;
+	while (1) {
         	pid = waitpid(-1, NULL, WNOHANG);
         	if (pid > 0) {
 			if(isatty(0)) printf("[%d] exited\n", pid);
