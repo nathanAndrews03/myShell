@@ -61,7 +61,7 @@ void yyset_in (FILE *  in_str );
 void cInterrupt(int sig) {
 	std::cout << "\n";
 	Shell::TheShell->clear();
-	//Shell::TheShell->prompt();
+	Shell::TheShell->prompt();
 }
 
 void zInterrupt(int sig) {
