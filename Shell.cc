@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <cstdio>
 #include <signal.h>
+#include <sys/wait.h>
 
 #include "Command.hh"
 #include "Shell.hh"
@@ -83,6 +84,15 @@ int main(int argc, char **argv) {
   sa_c.sa_flags = SA_RESTART;
   int tmp = sigaction(SIGINT, &sa_c, NULL);
   if (tmp == -1) {
+	perror("sigaction");
+	exit(1);
+  }
+
+  struct sigaction sa_z;
+  sa_z.sa_handler = zombie;
+  sa_z.sa_flags = SA_RESTART;
+  tmp = sigaction(SIGCHLD, &sa_z, NULL);
+  if (error = -1) {
 	perror("sigaction");
 	exit(1);
   }
