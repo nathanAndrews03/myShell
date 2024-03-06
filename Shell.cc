@@ -57,9 +57,10 @@ void Shell::execute() {
 
 void yyset_in (FILE *  in_str );
 
-static volatile int keepRunning = 1;
-extern "C" void sigInterupt(int sig) {
-	keepRunning = 0;
+void sigInterupt(int sig) {
+	cout << "\n";
+	Shell::celar();
+	Shell::prompt();
 }
  
 int main(int argc, char **argv) {
@@ -75,16 +76,19 @@ int main(int argc, char **argv) {
     }
     yyset_in(f);
   }  
-/*
+
   struct sigaction sa;
   sa.sa_handler = sInterupt;
   sigemptyset(&sa.sa_mask);
   sa.sa_flags = SA_RESTART;
-  if (sigaction(SIGINT, &sa, NULL)) {
+  tmp = sigaction(SIGINT, &sa1, NULL);
+  if (tmp == -1) {
 	perror("sigaction");
-	exit(2);
+	exit(1);
   }
-*/
+
+
+
   Shell::TheShell = new Shell();
 
   if (input_file != NULL) {
@@ -94,11 +98,7 @@ int main(int argc, char **argv) {
   else {
     Shell::TheShell->prompt();
   }
-  signal(SIGINT, sigInterupt);
-  while (keepRunning) {
-  	yyparse();
-	signal(SIGINT, sigInterupt);
-  }
+  yyparse();
 }
 
-
+	

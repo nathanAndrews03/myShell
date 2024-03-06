@@ -129,16 +129,20 @@ SEPARATOR:
 	NEWLINE
 	| SEMI
 	;
-
+// if you have nested ifs they wont be in the list right
+// cs250 compiler used stack with labels for break and continue. Look at top of stack and go to that label
+// Do something similar in command_line for stack of list commands ***
 command_line:
 	 pipe_list io_modifier_list background_optional SEPARATOR 
          { 
+	 // ***
 	    Shell::TheShell->_listCommands->
 		insertCommand(Shell::TheShell->_pipeCommand);
 	    Shell::TheShell->_pipeCommand = new PipeCommand(); 
          }
         | if_command SEPARATOR 
          {
+	 // ***
 	    Shell::TheShell->_listCommands->
 		insertCommand(Shell::TheShell->_ifCommand);
          }
