@@ -53,7 +53,6 @@ arg_list:
 	;
 
 cmd_and_args:
-	EXIT { printf("Goodbye!\n"); exit(0); }	
   	WORD { 
           Shell::TheShell->_simpleCommand = new SimpleCommand(); 
           Shell::TheShell->_simpleCommand->insertArgument( $1 );
@@ -149,6 +148,7 @@ command_line:
          }
         | while_command SEPARATOR {printf("while\n"); }
         | for_command SEPARATOR {printf("for\n"); }
+	| EXIT { printf("Goodbye!\n"); exit(0);
         | SEPARATOR /*accept empty cmd line*/
         | error SEPARATOR {yyerrok; Shell::TheShell->clear(); }
 	;          /*error recovery*/
