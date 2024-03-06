@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
   sa_z.sa_handler = zombie;
   sa_z.sa_flags = SA_RESTART;
   tmp = sigaction(SIGCHLD, &sa_z, NULL);
-  if (error = -1) {
+  if (tmp = -1) {
 	perror("sigaction");
 	exit(1);
   }
