@@ -65,9 +65,9 @@ void cInterrupt(int sig) {
 }
 
 void zInterrupt(int sig) {
-	pid_t pid;
-	while ((pid = waitpid(-1, NULL, WNOHANG)) != -1); 
-	printf("%d exited\n", pid);
+	int pid = wait3(0, 0, NULL);
+	while ((pid = waitpid(-1, NULL, WNOHANG)) > 0); 
+	//printf("%d exited\n", pid);
 	//Shell::TheShell->prompt();
 }
 
