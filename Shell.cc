@@ -76,7 +76,7 @@ void zInterrupt(int sig) {
             		break;
         	}
     	}	
-	//Shell::TheShell->prompt();
+	Shell::TheShell->prompt();
 }
 
 int main(int argc, char **argv) {
