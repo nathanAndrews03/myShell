@@ -59,7 +59,7 @@ void yyset_in (FILE *  in_str );
 
 void sigInterupt(int sig) {
 	cout << "\n";
-	Shell::celar();
+	Shell::clear();
 	Shell::prompt();
 }
  
