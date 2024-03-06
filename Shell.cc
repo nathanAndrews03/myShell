@@ -52,7 +52,7 @@ void Shell::execute() {
     //this->print();
     this->_listCommands->execute();
     this->_listCommands->clear();
-    this->prompt();
+    //this->prompt();
   }
 }
 
@@ -67,8 +67,10 @@ void cInterrupt(int sig) {
 void zInterrupt(int sig) {
 	int pid = wait3(0, 0, NULL);
 	while ((pid = waitpid(-1, NULL, WNOHANG)) > 0); 
-	printf("%d exited\n", pid);
-	//Shell::TheShell->prompt();
+	if (pid != -1) {
+		printf("%d exited\n", pid);
+	}
+	Shell::TheShell->prompt();
 }
 
 int main(int argc, char **argv) {
