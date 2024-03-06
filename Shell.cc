@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
   }  
 
   struct sigaction sa_c;
-  sa_c.sa_handler = sInterupt;
+  sa_c.sa_handler = sigInterupt;
   sigemptyset(&sa_c.sa_mask);
   sa_c.sa_flags = SA_RESTART;
   int tmp = sigaction(SIGINT, &sa_c, NULL);
