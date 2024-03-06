@@ -58,7 +58,7 @@ void Shell::execute() {
 void yyset_in (FILE *  in_str );
 
 void sigInterupt(int sig) {
-	cout << "\n";
+	std::cout << "\n";
 	Shell::clear();
 	Shell::prompt();
 }
