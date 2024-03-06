@@ -52,7 +52,7 @@ void Shell::execute() {
     //this->print();
     this->_listCommands->execute();
     this->_listCommands->clear();
-    //this->prompt();
+    this->prompt();
   }
 }
 
@@ -61,7 +61,7 @@ void yyset_in (FILE *  in_str );
 void cInterrupt(int sig) {
 	std::cout << "\n";
 	Shell::TheShell->clear();
-	Shell::TheShell->prompt();
+	//Shell::TheShell->prompt();
 }
 
 void zInterrupt(int sig) {
@@ -70,7 +70,7 @@ void zInterrupt(int sig) {
 	if (pid != -1) {
 		printf("%d exited\n", pid);
 	}
-	Shell::TheShell->prompt();
+	//Shell::TheShell->prompt();
 }
 
 int main(int argc, char **argv) {
