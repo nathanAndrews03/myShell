@@ -47,13 +47,13 @@ int yylex();
 goal: command_list;
 
 arg_list:
-	arg_list EXIT {  printf("Goodbye!\n"); exit(0); }
         arg_list WORD { 
           Shell::TheShell->_simpleCommand->insertArgument( $2 ); }
         | /*empty string*/
 	;
 
 cmd_and_args:
+	EXIT { printf("Goodbye!\n"); exit(0); }	
   	WORD { 
           Shell::TheShell->_simpleCommand = new SimpleCommand(); 
           Shell::TheShell->_simpleCommand->insertArgument( $1 );
