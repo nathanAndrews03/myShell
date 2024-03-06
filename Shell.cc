@@ -59,8 +59,8 @@ void yyset_in (FILE *  in_str );
 
 void sigInterupt(int sig) {
 	std::cout << "\n";
-	Shell::clear();
-	Shell::prompt();
+	Shell::TheShell->clear();
+	Shell::TheShell->prompt();
 }
  
 int main(int argc, char **argv) {
@@ -77,11 +77,11 @@ int main(int argc, char **argv) {
     yyset_in(f);
   }  
 
-  struct sigaction sa;
-  sa.sa_handler = sInterupt;
-  sigemptyset(&sa.sa_mask);
-  sa.sa_flags = SA_RESTART;
-  tmp = sigaction(SIGINT, &sa1, NULL);
+  struct sigaction sa_c;
+  sa_c.sa_handler = sInterupt;
+  sigemptyset(&sa_c.sa_mask);
+  sa_c.sa_flags = SA_RESTART;
+  int tmp = sigaction(SIGINT, &sa_c, NULL);
   if (tmp == -1) {
 	perror("sigaction");
 	exit(1);
