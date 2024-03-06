@@ -69,10 +69,8 @@ void zInterrupt(int sig) {
     	while (1) {
         	pid = waitpid(-1, NULL, WNOHANG);
         	if (pid > 0) {
-            		// A child process has exited, print its PID
-            		printf("[%d] exited.\n", pid);
+			if(isatty(0)) printf("[%d] exited\n", pid);
         	} else {
-            		// No more exited children to reap
             		break;
         	}
     	}	
