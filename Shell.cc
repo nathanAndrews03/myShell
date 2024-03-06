@@ -58,10 +58,14 @@ void Shell::execute() {
 
 void yyset_in (FILE *  in_str );
 
-void sigInterupt(int sig) {
+void cInterrupt(int sig) {
 	std::cout << "\n";
 	Shell::TheShell->clear();
 	Shell::TheShell->prompt();
+}
+
+void zInterrupt(int sig) {
+	//waitpid(-1, 
 }
  
 int main(int argc, char **argv) {
@@ -79,7 +83,7 @@ int main(int argc, char **argv) {
   }  
 
   struct sigaction sa_c;
-  sa_c.sa_handler = sigInterupt;
+  sa_c.sa_handler = cInterrupt;
   sigemptyset(&sa_c.sa_mask);
   sa_c.sa_flags = SA_RESTART;
   int tmp = sigaction(SIGINT, &sa_c, NULL);
