@@ -65,7 +65,9 @@ void cInterrupt(int sig) {
 }
 
 void zInterrupt(int sig) {
-	//waitpid(-1, 
+	pid_t pid
+	while ((pid = waitpid(-1, NULL, WNOHANG)) > 0); 
+	std::cout << "pid exited\n";
 }
  
 int main(int argc, char **argv) {
