@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
   }
 
   struct sigaction sa_z;
-  sa_z.sa_handler = zombie;
+  sa_z.sa_handler = zInterrupt;
   sa_z.sa_flags = SA_RESTART;
   tmp = sigaction(SIGCHLD, &sa_z, NULL);
   if (tmp = -1) {
