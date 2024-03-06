@@ -29,7 +29,7 @@ void Shell::prompt() {
 	//	fflush
 	//}
 	if (_enablePrompt) {
-		//printf("myshell>"); 
+		printf("myshell>"); 
 		fflush(stdout);
 	}
 }
@@ -52,7 +52,7 @@ void Shell::execute() {
     //this->print();
     this->_listCommands->execute();
     this->_listCommands->clear();
-    this->prompt();
+    //this->prompt();
   }
 }
 
