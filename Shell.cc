@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
   sigemptyset(&sa_c.sa_mask);
   sa_c.sa_flags = SA_RESTART;
   int error = sigaction(SIGINT, &sa_c, NULL);
-  if (tmp) {
+  if (error) {
 	perror("sigaction");
 	exit(1);
   }
