@@ -67,8 +67,8 @@ void cInterrupt(int sig) {
 void zInterrupt(int sig) {
 	pid_t pid;
 	while ((pid = waitpid(-1, NULL, WNOHANG)) > 0); 
-	std::cout << pid + " exited\n";
-	//Shell::TheShell->prompt();
+	printf(pid + " exited\n";
+	Shell::TheShell->prompt();
 }
  
 int main(int argc, char **argv) {
