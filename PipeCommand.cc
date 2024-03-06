@@ -98,7 +98,7 @@ void PipeCommand::print() {
 void PipeCommand::execute() {
     	// Don't do anything if there are no simple commands
     	if ( _simpleCommands.size() == 0 ) {
-        	//Shell::TheShell->prompt();
+        	Shell::TheShell->prompt();
         	return;
     	}
 
@@ -215,7 +215,7 @@ void PipeCommand::execute() {
     	clear();
 
     	// Print new prompt
-    	Shell::TheShell->prompt();
+    	//Shell::TheShell->prompt();
 }	
 
 // Expands environment vars and wildcards of a SimpleCommand and
