@@ -85,7 +85,8 @@ extern int yydebug;
     DONE = 276,                    /* DONE  */
     WHILE = 277,                   /* WHILE  */
     FOR = 278,                     /* FOR  */
-    IN = 279                       /* IN  */
+    IN = 279,                      /* IN  */
+    EXIT = 280                     /* EXIT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -116,6 +117,7 @@ extern int yydebug;
 #define WHILE 277
 #define FOR 278
 #define IN 279
+#define EXIT 280
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -127,7 +129,7 @@ union YYSTYPE
   // Example of using a c++ type in yacc
   std::string *cpp_string;
 
-#line 131 "y.tab.hh"
+#line 133 "y.tab.hh"
 
 };
 typedef union YYSTYPE YYSTYPE;
