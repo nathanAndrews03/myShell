@@ -111,6 +111,10 @@ void myunputc(int c) {
   return SEMI;
 }
 
+"exit" {
+  return EXIT;
+}
+
 
 [^ \t\n;][^ \t\n;]*  {
   /* Assume that file names have only alpha chars */
