@@ -65,11 +65,17 @@ void cInterrupt(int sig) {
 }
 
 void zInterrupt(int sig) {
-	int pid = wait3(0, 0, NULL);
-	while ((pid = waitpid(-1, NULL, WNOHANG)) > 0); 
-	if (pid != -1) {
-		printf("%d exited\n", pid);
-	}
+	int pid; //= wait3(0, 0, NULL);
+    	while (1) {
+        	pid = waitpid(-1, NULL, WNOHANG);
+        	if (pid > 0) {
+            		// A child process has exited, print its PID
+            		printf("[%d] exited.\n", pid);
+        	} else {
+            		// No more exited children to reap
+            		break;
+        	}
+    	}	
 	//Shell::TheShell->prompt();
 }
 
@@ -91,19 +97,20 @@ int main(int argc, char **argv) {
   sa_c.sa_handler = cInterrupt;
   sigemptyset(&sa_c.sa_mask);
   sa_c.sa_flags = SA_RESTART;
-  int tmp = sigaction(SIGINT, &sa_c, NULL);
-  if (tmp == -1) {
+  int error = sigaction(SIGINT, &sa_c, NULL);
+  if (tmp) {
 	perror("sigaction");
 	exit(1);
   }
 
   struct sigaction sa_z;
   sa_z.sa_handler = zInterrupt;
+  sigemptyset(&sa_z.sa_mask);
   sa_z.sa_flags = SA_RESTART;
-  tmp = sigaction(SIGCHLD, &sa_z, NULL);
-  if (tmp == -1) {
+  error = sigaction(SIGCHLD, &sa_z, NULL);
+  if (error) {
 	perror("sigaction");
-	exit(1);
+	exit(-1);
   }
 
 
