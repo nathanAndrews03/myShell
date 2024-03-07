@@ -107,7 +107,7 @@ void PipeCommand::execute() {
 		if (_simpleCommands[0]->_arguments.size() != 3) {
 			perror("setenv");	
 		}
-		setenv(simpleCommands[0]->_arguments[1]->c_str(), simpleCommands[0]->_arguments[2]->c_str(), 1);
+		setenv(_simpleCommands[0]->_arguments[1]->c_str(), simpleCommands[0]->_arguments[2]->c_str(), 1);
 		Shell::TheShell->clear();
 		Shell::TheShell->prompt();
 		return;
