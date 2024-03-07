@@ -24,6 +24,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include <cstring>
 
 #include "PipeCommand.hh"
 #include "Shell.hh"
