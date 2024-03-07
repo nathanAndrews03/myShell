@@ -102,7 +102,7 @@ void PipeCommand::execute() {
         	Shell::TheShell->prompt();
         	return;
     	}
-	if ( !strcmp( _simpleCommands[0]->_arguments[0]->c_str(), "setenv" ) ) { 
+	if (!strcmp( _simpleCommands[0]->_arguments[0]->c_str(), "setenv" ) ) { 
 		// add your code to set the environment variable 
 		if (_simpleCommands[0]->_arguments.size() != 3) {
 			perror("setenv");	
@@ -113,6 +113,15 @@ void PipeCommand::execute() {
 		return;
 	} 
 
+	if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "unsetenv")) {
+		if (_simpleCommands[0]->arguments.size() != 2) {
+			perror("unsetenv");
+		}
+		unsetenv(_simpleCommands[0]->arguments[1]->c_str);
+		Shell::TheShell->clear();
+		Shell::TheShell->promopt();
+		return;
+	}
     	// Print contents of PipeCommand data structure
     	if (isatty(0)) print();
 
