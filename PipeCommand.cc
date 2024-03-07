@@ -124,7 +124,6 @@ void PipeCommand::execute() {
 	}
 
 	if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
-		int err;
 		if (_simpleCommands[0]->_arguments.size() == 1) {
 			chdir(getenv("HOME"));
 		} else {
