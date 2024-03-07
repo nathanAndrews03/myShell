@@ -102,6 +102,15 @@ void PipeCommand::execute() {
         	Shell::TheShell->prompt();
         	return;
     	}
+	if ( !strcmp( _simpleCommands[0]->arguments[0]->c_str(), "setenv" ) ) { 
+		// add your code to set the environment variable 
+		if (_simpleCommands[0]->_arguments.size() != 3) {
+			perror("setenv");	
+		}
+		Shell::TheShell->clear();
+		Shell::TheShell->prompt();
+		return;
+	} 
 
     	// Print contents of PipeCommand data structure
     	if (isatty(0)) print();
@@ -111,7 +120,6 @@ void PipeCommand::execute() {
     	// Setup i/o redirection
     	// and call exec
     	int ret;
-
     	//save in/out
 	int tmpin=dup(0);
 	int tmpout=dup(1);
@@ -126,6 +134,8 @@ void PipeCommand::execute() {
 		// Use default input
 		fdin = dup(tmpin);
 	}
+
+
 
 			
 	//dup2(fderr,2);
@@ -193,15 +203,6 @@ void PipeCommand::execute() {
 		dup2(fderr, 2);
 		close(fderr);
 
-		if ( !strcmp( _simpleCommands[i]->_arguments[0], "setenv" ) ) { 
-			// add your code to set the environment variable 
-			if (_simpleCommands[i]->_arguments.size() != 3) {
-				perror("setenv");	
-			}
-			Shell::TheShell->clear();
-			Shell::TheShell->prompt();
-			return;
-		} 
 
 		args[s->_arguments.size()] = NULL;
 		ret = fork();
