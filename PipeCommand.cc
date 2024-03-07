@@ -122,6 +122,19 @@ void PipeCommand::execute() {
 		Shell::TheShell->prompt();
 		return;
 	}
+
+	if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
+		int err;
+		if (_simpleCommands[0]->_arguments.size() == 1) {
+			chdir(getenv("HOME"));
+		} else {
+			const char *dirPath = _simpleCommands[0]->_arguments[1]->c_str();
+			chdir(dirPath);
+		}
+		Shell::TheShell->clear();
+		Shell::TheShell->prompt();
+		return;
+	}
     	// Print contents of PipeCommand data structure
     	if (isatty(0)) print();
 
