@@ -1282,7 +1282,7 @@ yyreduce:
 
   case 25: /* command_line: EXIT  */
 #line 151 "shell.y"
-               { printf("Goodbye!\n"); exit(0); }
+               { printf("Good bye!!\n"); exit(0); }
 #line 1287 "y.tab.cc"
     break;
 
