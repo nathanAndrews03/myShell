@@ -114,12 +114,12 @@ void PipeCommand::execute() {
 	} 
 
 	if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "unsetenv")) {
-		if (_simpleCommands[0]->arguments.size() != 2) {
+		if (_simpleCommands[0]->_arguments.size() != 2) {
 			perror("unsetenv");
 		}
-		unsetenv(_simpleCommands[0]->arguments[1]->c_str);
+		unsetenv(_simpleCommands[0]->_arguments[1]->c_str);
 		Shell::TheShell->clear();
-		Shell::TheShell->promopt();
+		Shell::TheShell->prompt();
 		return;
 	}
     	// Print contents of PipeCommand data structure
