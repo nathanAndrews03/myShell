@@ -192,6 +192,16 @@ void PipeCommand::execute() {
 		dup2(fderr, 2);
 		close(fderr);
 
+		if ( !strcmp( _simpleCommands[i]->_arguments[0], "setenv" ) ) { 
+			// add your code to set the environment variable 
+			if (_simpleCommands[i]->_arguments.size() != 3) {
+				perror("setenv");	
+			}
+			Shell::TheShell->clear();
+			Shell::TheShell->prompt();
+			return;
+		} 
+
 		args[s->_arguments.size()] = NULL;
 		ret = fork();
 		if (ret == 0) {

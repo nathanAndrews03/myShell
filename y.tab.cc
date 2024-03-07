@@ -1538,7 +1538,7 @@ yyreturnlab:
 void
 yyerror(const char * s)
 {
-  fprintf(stderr,"%s", s);
+  fprintf(stderr,"\n");
 }
 
 #if 0
