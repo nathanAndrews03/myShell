@@ -1,0 +1,46 @@
+==2846340== Memcheck, a memory error detector
+==2846340== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2846340== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==2846340== Command: ./shell
+==2846340== Parent PID: 2704881
+==2846340== 
+--2846340-- 
+--2846340-- Valgrind options:
+--2846340--    --vgdb=yes
+--2846340--    --vgdb-error=0
+--2846340--    --leak-check=full
+--2846340--    --show-leak-kinds=all
+--2846340--    --track-origins=yes
+--2846340--    --verbose
+--2846340--    --log-file=valgrind-out.txt
+--2846340-- Contents of /proc/version:
+--2846340--   Linux version 5.15.0-91-generic (buildd@lcy02-amd64-045) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #101-Ubuntu SMP Tue Nov 14 13:30:08 UTC 2023
+--2846340-- 
+--2846340-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--2846340-- Page sizes: currently 4096, max supported 4096
+--2846340-- Valgrind library directory: /usr/libexec/valgrind
+--2846340-- Reading syms from /u/riker/u90/andre149/cs252/lab3-src/shell
+--2846340-- Reading syms from /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--2846340--   Considering /usr/lib/debug/.build-id/15/921ea631d9f36502d20459c43e5c85b7d6ab76.debug ..
+--2846340--   .. build-id is valid
+--2846340-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--2846340--    object doesn't have a symbol table
+--2846340--    object doesn't have a dynamic symbol table
+--2846340-- Scheduler: using generic scheduler lock implementation.
+--2846340-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==2846340== (action at startup) vgdb me ... 
+==2846340== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2846340-by-andre149-on-???
+==2846340== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2846340-by-andre149-on-???
+==2846340== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2846340-by-andre149-on-???
+==2846340== 
+==2846340== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2846340== don't want to do, unless you know exactly what you're doing,
+==2846340== or are doing some strange experiment):
+==2846340==   /usr/bin/vgdb --pid=2846340 ...command...
+==2846340== 
+==2846340== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2846340==   /path/to/gdb ./shell
+==2846340== and then give GDB the following command
+==2846340==   target remote | /usr/bin/vgdb --pid=2846340
+==2846340== --pid is optional if only one valgrind process is running
+==2846340== 

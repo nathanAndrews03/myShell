@@ -1,0 +1,271 @@
+Grade Report for Lab 3 Testall
+test_redirect_input Failed 0/1
+test_redirect_output Failed 0/1
+test_redirect_error Failed 0/1
+test_redirect_error2 Failed 0/1
+test_redirect_out_err Failed 0/1
+test_redirect_multiple Failed 0/1
+test_append_output Failed 0/1
+test_pipes1 Failed 0/1
+test_pipes2 Failed 0/1
+test_pipes_redirect_out Failed 0/1
+test_pipes_redirect_err Failed 0/1
+test_background Failed 0/1
+test_zombie Failed 0/1
+test_printenv Failed 0/1
+test_setenv Failed 0/.5
+test_unsetenv Failed 0/.5
+test_source Failed 0/2
+test_cd1 Failed 0/.5
+test_cd2 Failed 0/.5
+test_cd3 Failed 0/.5
+test_cd4 Failed 0/.5
+test_parsing1 Failed 0/.5
+test_parsing2 Failed 0/.5
+test_quotes1 Failed 0/1
+test_quotes2 Failed 0/1
+test_escape Failed 0/1
+test_env_expand1 Failed 0/1
+test_env_expand2 Failed 0/.5
+test_env_var_shell Failed 0/.5
+test_env_var_dollar Failed 0/.5
+test_env_var_question Failed 0/.5
+test_env_var_bang Failed 0/.5
+test_env_var_uscore Failed 0/.3
+test_subshell Failed 0/10
+test_wildcards1 Failed 0/2
+test_wildcards2 Failed 0/1
+test_wildcards3 Failed 0/1
+test_wildcards4 Failed 0/.5
+test_wildcards5 Failed 0/.5
+test_wildcards6 Failed 0/.5
+test_wildcards7 Failed 0/.5
+test_tilde Failed 0/2
+test_robustness Failed 0/5
+test_if_1 Failed 0/5
+test_if_2 Failed 0/5
+test_while_1 Failed 0/4
+test_while_2 Failed 0/4
+test_for_1 Failed 0/4
+test_for_2 Failed 0/4
+test_script_1 Failed 0/4
+Fri Mar 22 07:46:30 PM EDT 2024
+Total:                   0.0 of 79.8
+Sat Mar 23 12:01:46 AM EDT 2024
+Total:                   21.0 of 79.8
+Sat Mar 23 12:03:19 AM EDT 2024
+Total:                   21.0 of 79.8
+Sat Mar 23 12:04:31 AM EDT 2024
+Total:                   21.0 of 79.8
+Sat Mar 23 02:20:43 AM EDT 2024
+Total:                   23.5 of 79.8
+Sat Mar 23 02:31:02 AM EDT 2024
+Total:                   24.0 of 79.8
+Sat Mar 23 09:05:48 PM EDT 2024
+Total:                   24.0 of 79.8
+Sat Mar 23 09:09:39 PM EDT 2024
+Total:                   24.0 of 79.8
+Sat Mar 23 09:23:30 PM EDT 2024
+Total:                   24.0 of 79.8
+Sat Mar 23 09:27:17 PM EDT 2024
+Total:                   23.5 of 79.8
+Sat Mar 23 09:29:10 PM EDT 2024
+Total:                   24.0 of 79.8
+Sat Mar 23 09:36:22 PM EDT 2024
+Total:                   24.0 of 79.8
+Sat Mar 23 09:47:45 PM EDT 2024
+Total:                   23.5 of 79.8
+Sat Mar 23 09:48:01 PM EDT 2024
+Total:                   23.5 of 79.8
+Sat Mar 23 09:59:43 PM EDT 2024
+Total:                   23.5 of 79.8
+Sat Mar 23 10:00:35 PM EDT 2024
+Total:                   23.5 of 79.8
+Sat Mar 23 10:10:22 PM EDT 2024
+Total:                   23.8 of 79.8
+Sat Mar 23 10:14:16 PM EDT 2024
+Total:                   24.3 of 79.8
+Sat Mar 23 10:21:09 PM EDT 2024
+Total:                   25.3 of 79.8
+Sat Mar 23 10:21:35 PM EDT 2024
+Total:                   25.3 of 79.8
+Wed Mar 27 09:44:33 PM EDT 2024
+Total:                   25.3 of 79.8
+Wed Mar 27 09:47:11 PM EDT 2024
+Total:                   27.3 of 79.8
+Wed Mar 27 09:48:15 PM EDT 2024
+Total:                   27.3 of 79.8
+Wed Mar 27 10:09:57 PM EDT 2024
+Total:                   27.3 of 79.8
+Wed Mar 27 10:42:26 PM EDT 2024
+Total:                   27.3 of 79.8
+Wed Mar 27 11:43:32 PM EDT 2024
+Total:                   27.3 of 79.8
+Wed Mar 27 11:49:14 PM EDT 2024
+Total:                   27.3 of 79.8
+Thu Mar 28 12:31:30 AM EDT 2024
+Total:                   27.3 of 79.8
+Thu Mar 28 12:47:44 AM EDT 2024
+Total:                   27.3 of 79.8
+Thu Mar 28 01:39:55 AM EDT 2024
+Total:                   37.3 of 79.8
+Thu Mar 28 01:58:21 AM EDT 2024
+Total:                   39.3 of 79.8
+Thu Mar 28 02:26:57 AM EDT 2024
+Total:                   39.3 of 79.8
+Fri Mar 29 12:26:19 AM EDT 2024
+Total:                   33.5 of 79.8
+Fri Mar 29 12:36:40 AM EDT 2024
+Total:                   38.8 of 79.8
+Fri Mar 29 12:42:13 AM EDT 2024
+Total:                   39.3 of 79.8
+Fri Mar 29 01:16:19 AM EDT 2024
+Total:                   39.3 of 79.8
+Fri Mar 29 01:26:35 AM EDT 2024
+Total:                   13.5 of 79.8
+Fri Mar 29 01:36:01 AM EDT 2024
+Total:                   39.3 of 79.8
+Fri Mar 29 02:04:39 PM EDT 2024
+Total:                   21.0 of 79.8
+Fri Mar 29 02:12:50 PM EDT 2024
+Total:                   28.3 of 79.8
+Fri Mar 29 02:20:40 PM EDT 2024
+Total:                   29.3 of 79.8
+Sat Mar 30 12:56:48 AM EDT 2024
+Total:                   8.5 of 79.8
+Sat Mar 30 01:09:15 AM EDT 2024
+Total:                   8.5 of 79.8
+Sat Mar 30 01:17:26 AM EDT 2024
+Total:                   36.8 of 79.8
+Sat Mar 30 01:18:44 AM EDT 2024
+Total:                   36.8 of 79.8
+Sat Mar 30 01:33:50 AM EDT 2024
+Total:                   36.8 of 79.8
+Sat Mar 30 01:35:28 AM EDT 2024
+Total:                   36.8 of 79.8
+Sat Mar 30 01:43:04 AM EDT 2024
+Total:                   36.8 of 79.8
+Sat Mar 30 04:48:16 PM EDT 2024
+Total:                   36.8 of 79.8
+Sun Mar 31 12:25:47 AM EDT 2024
+Total:                   3.5 of 79.8
+Sun Mar 31 12:27:14 AM EDT 2024
+Total:                   26.8 of 79.8
+Sun Mar 31 12:45:20 AM EDT 2024
+Total:                   38.8 of 79.8
+Thu Apr  4 09:42:45 AM EDT 2024
+Total:                   38.8 of 79.8
+Thu Apr  4 01:16:18 PM EDT 2024
+Total:                   46.3 of 79.8
+Thu Apr  4 02:40:47 PM EDT 2024
+Total:                   49.3 of 79.8
+Thu Apr  4 02:48:16 PM EDT 2024
+Total:                   49.8 of 79.8
+Thu Apr  4 03:37:41 PM EDT 2024
+Total:                   49.8 of 79.8
+Fri Apr  5 12:45:40 AM EDT 2024
+Total:                   6.0 of 79.8
+Fri Apr  5 01:04:07 AM EDT 2024
+Total:                   6.0 of 79.8
+Fri Apr  5 01:05:59 AM EDT 2024
+Total:                   6.0 of 79.8
+Fri Apr  5 01:06:29 AM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 01:11:48 AM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 01:28:27 AM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 01:46:05 AM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 02:01:28 AM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 02:23:21 AM EDT 2024
+Total:                   49.8 of 79.8
+Fri Apr  5 01:45:23 PM EDT 2024
+Total:                   49.8 of 79.8
+Fri Apr  5 02:03:33 PM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 06:19:55 PM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 06:25:22 PM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 06:42:16 PM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 07:06:33 PM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 09:19:34 PM EDT 2024
+Total:                   59.8 of 79.8
+Fri Apr  5 09:40:50 PM EDT 2024
+Total:                   63.8 of 79.8
+Sat Apr  6 01:02:35 AM EDT 2024
+Total:                   53.8 of 79.8
+Sat Apr  6 04:40:04 PM EDT 2024
+Total:                   42.8 of 79.8
+Sat Apr  6 04:41:32 PM EDT 2024
+Total:                   49.8 of 79.8
+Sat Apr  6 04:42:39 PM EDT 2024
+Total:                   49.8 of 79.8
+Sat Apr  6 04:43:46 PM EDT 2024
+Total:                   59.8 of 79.8
+Sat Apr  6 04:52:29 PM EDT 2024
+Total:                   59.8 of 79.8
+Sat Apr  6 07:04:34 PM EDT 2024
+Total:                   54.8 of 79.8
+Sun Apr  7 12:26:14 AM EDT 2024
+Total:                   49.8 of 79.8
+Sun Apr  7 01:53:24 AM EDT 2024
+Total:                   54.8 of 79.8
+Sun Apr  7 01:59:58 PM EDT 2024
+Total:                   53.8 of 79.8
+Sun Apr  7 02:01:17 PM EDT 2024
+Total:                   53.8 of 79.8
+Sun Apr  7 07:54:39 PM EDT 2024
+Total:                   53.8 of 79.8
+Sun Apr  7 08:04:46 PM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 12:16:15 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 01:18:15 AM EDT 2024
+Total:                   58.8 of 79.8
+Mon Apr  8 01:34:16 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 01:38:24 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 02:50:36 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 03:28:59 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:14:36 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:24:51 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:28:19 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:40:22 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:46:18 AM EDT 2024
+Total:                   0.0 of 79.8
+Mon Apr  8 04:51:05 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:57:06 AM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 04:59:41 AM EDT 2024
+Total:                   67.8 of 79.8
+Mon Apr  8 01:53:04 PM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 03:48:01 PM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 05:10:46 PM EDT 2024
+Total:                   63.8 of 79.8
+Mon Apr  8 05:11:53 PM EDT 2024
+Total:                   67.8 of 79.8
+Mon Apr  8 05:40:01 PM EDT 2024
+Total:                   71.8 of 79.8
+Mon Apr  8 07:20:12 PM EDT 2024
+Total:                   71.8 of 79.8
+Mon Apr  8 07:39:55 PM EDT 2024
+Total:                   75.8 of 79.8
+Mon Apr  8 07:48:09 PM EDT 2024
+Total:                   75.8 of 79.8
+Thu Apr 11 09:59:58 AM EDT 2024
+Total:                   75.8 of 79.8
